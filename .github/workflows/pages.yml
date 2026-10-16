@@ -19,14 +19,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Prepare public files
-        run: |
-          mkdir public
-          cp index.html booking.html styles.css app.js booking.js .nojekyll public/
-          cp -r assets public/
+        run: python build.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

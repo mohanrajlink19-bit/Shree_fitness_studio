@@ -1,0 +1,95 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const {pathToFileURL}=require('node:url');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+fs.mkdirSync('qa',{recursive:true});
+(async()=>{
+ const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,timeout:12000});
+ try {
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const errors=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  const url=pathToFileURL(path.resolve('index.html')).href;
+  const booking=pathToFileURL(path.resolve('booking.html')).href;
+  async function photosReady(){await page.locator('img[src]').evaluateAll(imgs=>Promise.all(imgs.map(async img=>{img.loading='eager';await img.decode()})))}
+  await page.goto(url,{waitUntil:'domcontentloaded'});
+  await photosReady();
+  await page.screenshot({path:'qa/desktop.png',fullPage:true});
+  assert.equal(await page.locator('#online').count(),1);
+  assert.equal(await page.locator('iframe[title*="Google map"]').count(),1);
+  await page.locator('[data-image]').nth(1).click();
+  assert.equal(await page.locator('dialog').evaluate(d=>d.open),true);
+  assert.ok((await page.locator('#dialog-image').getAttribute('src')).endsWith('strength.jpeg'));
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('dialog').evaluate(d=>d.open),false);
+  await page.locator('[data-goal="Personal training"]').click();
+  assert.equal(await page.locator('#goal').inputValue(),'Personal training');
+  await page.locator('#name').fill('Test visitor');
+  await page.evaluate(()=>window.open=url=>{window.testDraft=url;return null});
+  await page.locator('#enquiry-form button[type="submit"]').click();
+  assert.ok(decodeURIComponent(await page.evaluate(()=>window.testDraft)).includes('Test visitor'));
+  await page.locator('details').first().locator('summary').click();
+  assert.equal(await page.locator('details').first().evaluate(d=>d.open),true);
+  await page.locator('#copy-address').click();
+  await page.waitForFunction(()=>document.querySelector('#address-status').textContent.length>0);
+  for(const width of [320,375,390,768,1024,1440]){
+   await page.setViewportSize({width,height:900});
+   await page.goto(url,{waitUntil:'domcontentloaded'});
+   await photosReady();
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Homepage overflow ${width}`);
+   await page.addStyleTag({content:':root{--display:Arial,sans-serif}'});
+   assert.equal(await page.locator('h1,h2,h3').evaluateAll(items=>items.filter(el=>el.scrollWidth>el.clientWidth).length),0,`Fallback font clipping ${width}`);
+   await page.reload({waitUntil:'domcontentloaded'});
+   await photosReady();
+   if(width===390){
+    await page.locator('.menu-toggle').click();
+    assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
+    await page.locator('nav a[href="#online"]').click();
+    assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
+    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+    await page.screenshot({path:'qa/mobile.png',fullPage:true});
+   }
+   await page.goto(booking+'?service=online',{waitUntil:'domcontentloaded'});
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Booking overflow ${width}`);
+   assert.equal(await page.locator('[data-service="online"]').isChecked(),true);
+   assert.equal(await page.locator('#online-equipment-group').isVisible(),true);
+   if(width===390)await page.screenshot({path:'qa/booking-mobile.png',fullPage:true});
+  }
+  await page.locator('#visit-date').fill('2000-01-01');
+  assert.equal(await page.locator('#visit-date').evaluate(el=>el.validity.rangeUnderflow),true);
+  const date=new Date(Date.now()+86400000).toISOString().slice(0,10);
+  await page.locator('#visit-date').fill(date);
+  await page.locator('#visit-time').fill('14:30');
+  await page.locator('#booking-name').fill('Test appointment');
+  await page.locator('#booking-phone').fill('123');
+  await page.locator('#booking-form button[type="submit"]').click();
+  assert.ok(await page.locator('#booking-phone').evaluate(el=>el.validationMessage.length>0));
+  await page.locator('#booking-phone').fill('+91 98765 43210');
+  await page.locator('#online-equipment').selectOption('Dumbbells / resistance bands');
+  await page.locator('#booking-notes').fill('Please discuss an online strength plan.');
+  await page.locator('#booking-form button[type="submit"]').click();
+  assert.equal(await page.locator('#booking-review').isVisible(),true);
+  const draft=decodeURIComponent(await page.locator('#send-booking').getAttribute('href'));
+  for(const text of ['Online training consultation','Dumbbells / resistance bands','2:30 PM IST','not a confirmed booking'])assert.ok(draft.includes(text),text);
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+  await page.screenshot({path:'qa/booking-review.png',fullPage:true});
+  await page.locator('#edit-booking').click();
+  assert.equal(await page.locator('#booking-form').isVisible(),true);
+  await page.locator('[data-service="studio"]').check();
+  assert.equal(await page.locator('#online-equipment-group').isVisible(),false);
+  const sunday=new Date(Date.now()+86400000);while(sunday.getUTCDay()!==0)sunday.setUTCDate(sunday.getUTCDate()+1);
+  await page.locator('#visit-date').fill(sunday.toISOString().slice(0,10));
+  await page.locator('#visit-time').fill('14:30');
+  assert.equal(await page.locator('#visit-time').evaluate(el=>el.validity.rangeOverflow),true);
+  await page.locator('#visit-time').fill('09:00');
+  await page.locator('#booking-form button[type="submit"]').click();
+  assert.equal(await page.locator('#booking-review').isVisible(),true);
+  assert.ok((await page.locator('#review-location').innerText()).includes('BSNL'));
+  assert.equal(await page.locator('#review-equipment-row').isVisible(),false);
+  assert.equal(errors.length,0,errors.join('\n'));
+  const result={status:'passed',viewportWidths:[320,375,390,768,1024,1440],checks:['photos','gallery dialog','mobile menu','enquiry draft','copy address','FAQ','online preset','equipment selection','phone validation','past date','Sunday hours','booking review','edit request','no horizontal overflow','no JavaScript errors'],limits:['Live Google Maps rendering and external WhatsApp navigation not verified; terminal network unavailable.']};
+  fs.writeFileSync('qa/result.json',JSON.stringify(result,null,2));
+  console.log(JSON.stringify(result));
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e.stack);process.exitCode=1});
