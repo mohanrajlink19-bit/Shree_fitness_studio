@@ -15,6 +15,7 @@ Open `index.html` directly, or run `python -m http.server 8080` from this folder
 - No invented ratings, testimonials, certifications, results, membership counts or performance promises.
 - The enquiry form opens an editable WhatsApp message draft. It does not send automatically, store submissions or require a backend.
 - The gallery supports click, keyboard activation, Escape dismissal and native modal focus handling.
+- `booking.html` provides a studio visit / personal training consultation request form, with Indian mobile validation, Chennai-local date/time checks, a 90-day request window and an editable review step. It opens a WhatsApp draft; the studio must confirm availability. It is not an automatic reservation or payment system.
 
 ## Publish with GitHub Pages
 
@@ -28,6 +29,6 @@ Import the repository, choose **Other** as the framework, leave the build comman
 
 ## Maintenance
 
-Edit business copy and contact links in `index.html`, design rules in `styles.css`, and interactions in `app.js`. After a public URL is confirmed, add its canonical link and absolute social preview image URL to the page head.
+Edit business copy and contact links in `index.html` and `booking.html`, design rules in `styles.css`, and interactions in `app.js` and `booking.js`. After a public URL is confirmed, add its canonical link and absolute social preview image URL to the page head.
 
 Do not commit local QA outputs or credentials. `.gitignore` excludes QA outputs and dependency folders.

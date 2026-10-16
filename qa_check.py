@@ -8,7 +8,7 @@ root = Path(__file__).resolve().parent
 out = root / 'qa'
 out.mkdir(exist_ok=True)
 with sync_playwright() as p:
-    browser = p.chromium.launch(executable_path=r'C:\Program Files\Google\Chrome\Application\chrome.exe', headless=True)
+    browser = p.chromium.launch(executable_path=r'C:\Program Files\Google\Chrome\Application\chrome.exe', headless=True, timeout=15000)
     page = browser.new_page(viewport={'width': 1440, 'height': 1000}, device_scale_factor=1)
     errors = []
     page.on('pageerror', lambda error: errors.append(str(error)))
