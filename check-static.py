@@ -38,7 +38,7 @@ class Page(HTMLParser):
             self.stack.pop()
 
 pages = {}
-for name in ['index.html', 'booking.html', '404.html']:
+for name in ['index.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']:
     text = (root / name).read_text(encoding='utf-8')
     assert '\ufffd' not in text, f'{name}: broken Unicode'
     page = Page(name)
@@ -60,8 +60,26 @@ for name, page in pages.items():
             assert parsed.fragment in pages[target].ids, f'{name}: missing anchor {link}'
     print(f'{name}: HTML nesting, heading, links, anchors, image alt text and local assets passed')
 import re
-schema = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', (root / 'index.html').read_text(encoding='utf-8')).group(1))
-assert schema['telephone'] == '+919710999898'
-assert schema['address']['postalCode'] == '600116'
-assert len(schema['openingHoursSpecification']) == 2
-print('Structured business data passed')
+SITE = 'https://shreefitnessstudio.pages.dev'
+canonicals = {'index.html': f'{SITE}/', 'booking.html': f'{SITE}/booking', 'personal-training.html': f'{SITE}/personal-training', 'online-training.html': f'{SITE}/online-training'}
+sitemap = (root / 'sitemap.xml').read_text(encoding='utf-8')
+assert f'Sitemap: {SITE}/sitemap.xml' in (root / 'robots.txt').read_text(encoding='utf-8'), 'robots.txt: missing sitemap'
+for name, url in canonicals.items():
+    text = (root / name).read_text(encoding='utf-8')
+    assert f'<link rel="canonical" href="{url}">' in text, f'{name}: canonical'
+    assert f'<loc>{url}</loc>' in sitemap, f'sitemap.xml: missing {url}'
+    title = re.search(r'<title>(.*?)</title>', text).group(1)
+    description = re.search(r'<meta name="description" content="(.*?)">', text).group(1)
+    assert len(title) <= 60 and 70 <= len(description) <= 160, f'{name}: title {len(title)} / description {len(description)} characters'
+    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', text, re.S):
+        json.loads(block)
+graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', (root / 'index.html').read_text(encoding='utf-8'), re.S).group(1))['@graph']
+gym = next(node for node in graph if node['@type'] == 'ExerciseGym')
+assert gym['telephone'] == '+919566099329'
+assert gym['address']['postalCode'] == '600116'
+assert len(gym['openingHoursSpecification']) == 2
+faq = next(node for node in graph if node['@type'] == 'FAQPage')
+index_text = (root / 'index.html').read_text(encoding='utf-8')
+for question in faq['mainEntity']:
+    assert f'<summary>{question["name"]}<' in index_text, f'FAQ data not visible: {question["name"]}'
+print('Canonicals, sitemap, titles, descriptions and structured business data passed')

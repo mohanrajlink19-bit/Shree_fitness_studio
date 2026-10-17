@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://shreefitnessstudio.pages.dev/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/training.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-01.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-03.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-04.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-09.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-16.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-17.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://shreefitnessstudio.pages.dev/assets/gym-26.jpeg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://shreefitnessstudio.pages.dev/personal-training</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://shreefitnessstudio.pages.dev/online-training</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://shreefitnessstudio.pages.dev/booking</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+</urlset>

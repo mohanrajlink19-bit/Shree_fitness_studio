@@ -5,3 +5,8 @@ node_modules/
 qa/
 __pycache__/
 dist/
+
+# Cloudflare Worker local files and secrets
+.wrangler/
+.dev.vars
+.env

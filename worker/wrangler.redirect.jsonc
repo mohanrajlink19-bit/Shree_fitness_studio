@@ -1,0 +1,9 @@
+// The original Worker address (mute-tooth-33cb...workers.dev) now only redirects to the Pages site.
+// Deploy: npx wrangler deploy -c worker/wrangler.redirect.jsonc
+{
+  "name": "mute-tooth-33cb",
+  "main": "redirect.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": false
+}

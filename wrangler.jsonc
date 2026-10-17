@@ -1,0 +1,12 @@
+// Cloudflare Pages project: https://shreefitnessstudio.pages.dev (free).
+// Deploy: python build.py && npx wrangler pages deploy
+// Secret (never commit): npx wrangler pages secret put CALLMEBOT_APIKEY --project-name shreefitnessstudio
+{
+  "name": "shreefitnessstudio",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-09-01",
+  "vars": {
+    // WhatsApp number that receives website booking requests (functions/api/booking.js).
+    "NOTIFY_WHATSAPP": "+919566099329"
+  }
+}

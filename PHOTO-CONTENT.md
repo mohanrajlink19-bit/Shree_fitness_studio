@@ -19,6 +19,14 @@ All 44 JPEG files in `../photos_shree/` were reviewed using four contact sheets,
 
 The other images include duplicate banners, alternative equipment angles, entry-door branding, motivational wall graphics, a festival greeting, and other transformation collages. They were reviewed for context; not every photo is suitable for the published visual design.
 
-The supplied posters show an older secondary number (`9566099329`), which is superseded by the user's explicit numbers: `9710999898` and `8778642342`. The website contains only the user-specified contact numbers. A poster lists a ₹7,000 personal-training offer without a confirmed billing period or current validity, so the site asks visitors to enquire about fees rather than publishing that price. Promotional guaranteed-result language and one-month promises were not adopted.
+The supplied posters show an older secondary number (`9566099329`), which is superseded by the user's explicit numbers: `9566099329` and `8778642342`. The website contains only the user-specified contact numbers. A poster lists a ₹7,000 personal-training offer without a confirmed billing period or current validity, so the site asks visitors to enquire about fees rather than publishing that price. Promotional guaranteed-result language and one-month promises were not adopted.
 
 Original source photos are unchanged. Display crops and colour treatments are CSS-only. The progress photograph is displayed uncropped so its before/after context remains intact.
+
+## Gallery update
+
+The studio gallery now contains eight real gym/equipment photographs, with a Gallery navigation link and hero link. Additional sources: `6.26.51 PM`, `6.26.52 PM (2)`, `6.26.53 PM (1)`, `6.26.54 PM`, and `6.26.53 PM` (all JPEGs dated 2026-10-16). The transformation carousel adds `6.21.57 PM.jpeg`, which contains a before/after collage without superseded contact details. Both transformation images are displayed with object-fit contain, without retouching bodies or cropping the comparison.
+
+Both galleries now glide continuously while visible, including under the pointer. Image runs on both sides prevent empty ends; previous/next and touch interactions briefly suspend movement before it resumes. Explicit play/pause and reduced-motion preferences control automatic playback. Gym photographs fill their frames using CSS crops; transformation posters remain fully contained. Every Journey Is Personal now precedes 03 / Personal Training.
+
+The final gallery contains all 26 requested studio photographs and four transformation images, including the two original posters explicitly requested by the user. Those posters retain their historical printed contact details and promotional wording; current site contact buttons use the user-specified numbers.
