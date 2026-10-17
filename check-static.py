@@ -67,6 +67,7 @@ assert f'Sitemap: {SITE}/sitemap.xml' in (root / 'robots.txt').read_text(encodin
 for name, url in canonicals.items():
     text = (root / name).read_text(encoding='utf-8')
     assert f'<link rel="canonical" href="{url}">' in text, f'{name}: canonical'
+    assert text.count('rel="canonical"') == 1 and text.count('property="og:url"') == 1, f'{name}: duplicate canonical or og:url'
     assert f'<loc>{url}</loc>' in sitemap, f'sitemap.xml: missing {url}'
     title = re.search(r'<title>(.*?)</title>', text).group(1)
     description = re.search(r'<meta name="description" content="(.*?)">', text).group(1)

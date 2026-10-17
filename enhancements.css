@@ -117,3 +117,7 @@ main > section:not(:first-child){content-visibility:auto;contain-intrinsic-size:
 .map-heading .eyebrow{color:#55532f}
 .map-heading>span:last-child{color:#4f5243}
 .faq{background:var(--black)}
+.booking-panel>.eyebrow,.booking-review>.eyebrow{color:#5f5a2c}
+.booking-panel legend>span,.booking-panel .field-help{color:#5f6052}
+.service-option small{color:#555749}
+.booking-panel .booking-policy{color:#4f5243}
