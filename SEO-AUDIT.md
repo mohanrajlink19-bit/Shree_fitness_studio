@@ -169,6 +169,20 @@ Found through directory research. Google review counts were not available withou
 - **Member consent:** identifiable members appear in `gym-06/07/08/12/18`, `training.jpeg` and the progress photos. Keep written consent on file.
 - **Address wording:** posters say "near Lakshmi Dental Hospital", while the website and GBP say "opposite Saravana Stores". Choose one wording for all listings.
 
+## Follow-up audit (18 October 2026, live site)
+
+| Page | Accessibility | Best practices | SEO | Notes |
+| --- | --- | --- | --- | --- |
+| `/` | 100 | 100 | 100 | LCP on slow 4G with a 4x slower CPU: 5.0 s → 3.3 s, from rendering off-screen sections lazily |
+| `/booking` | 100 | 100 | 100 | Fixed a duplicate canonical and `og:url` that pointed at `/booking.html` |
+| `/personal-training` | 100 | 100 | 100 | |
+| `/online-training` | 100 | 100 | 100 | |
+
+- `check-static.py` now fails the build if a page has more than one canonical or `og:url`.
+- The site isn't in Google's index yet; a search for the domain returns nothing. **Next:** verify it in Search Console, submit `sitemap.xml` and request indexing for all 4 URLs.
+- The gym schema has no `geo` coordinates and no `sameAs` profile links. Add them once the Google Maps share link of the Business Profile is available, plus any Instagram or Facebook pages.
+- **Citation gap:** competitors in Porur (JRC Gym, Shredded Society, Vars Hi-tech, Endorphins) are listed on FITPASS. Shree Fitness isn't yet listed there, nor on Justdial, Sulekha or Lyfskills.
+
 ## Sources
 
 - Google: [How Google determines local ranking](https://support.google.com/business/answer/7091)
