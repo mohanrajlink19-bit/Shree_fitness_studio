@@ -121,3 +121,5 @@ main > section:not(:first-child){content-visibility:auto;contain-intrinsic-size:
 .booking-panel legend>span,.booking-panel .field-help{color:#5f6052}
 .service-option small{color:#555749}
 .booking-panel .booking-policy{color:#4f5243}
+.booking-panel .form-note{color:#5f6052}
+.review-note,.booking-review dt{color:#5f6052}
