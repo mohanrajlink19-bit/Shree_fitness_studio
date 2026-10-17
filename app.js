@@ -114,7 +114,7 @@ document.querySelector('#copy-address').addEventListener('click', async () => {
 });
 
 // Three identical image runs keep a neighbouring slide on both sides of every wrap.
-document.querySelectorAll('[data-carousel]').forEach(carousel => {
+function setupCarousel(carousel) {
   const track = carousel.querySelector('.carousel-track');
   const slides = [...track.children];
   const pause = carousel.querySelector('[data-pause]');
@@ -189,4 +189,12 @@ document.querySelectorAll('[data-carousel]').forEach(carousel => {
     requestAnimationFrame(frame);
   }
   measure(); update(); requestAnimationFrame(frame);
-});
+}
+// Build each slideshow only as it nears the screen, keeping the phone's main thread free while the page first loads.
+const carouselObserver = new IntersectionObserver((entries, observer) => {
+  entries.filter(entry => entry.isIntersecting).forEach(entry => {
+    observer.unobserve(entry.target);
+    setupCarousel(entry.target);
+  });
+}, {rootMargin: '800px 0px'});
+document.querySelectorAll('[data-carousel]').forEach(carousel => carouselObserver.observe(carousel));

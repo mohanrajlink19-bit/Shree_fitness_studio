@@ -107,3 +107,6 @@ nav.footer-links>a:not(.button),nav.breadcrumb>a:not(.button){font-size:inherit;
 /* Hidden spam trap on the enquiry and booking forms; people never see or fill it. */
 .hp-field{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 button[type="submit"]:disabled{opacity:.6;cursor:wait}
+/* Text contrast (WCAG AA) on cream backgrounds. */
+.studio-features b{color:#5f6052}
+.progress-photo figcaption{color:#4f5243}
