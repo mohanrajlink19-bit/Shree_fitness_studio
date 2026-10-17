@@ -14,7 +14,8 @@ pages = ['index.html', 'booking.html', 'personal-training.html', 'online-trainin
 public_files = pages + ['styles.css', 'enhancements.css', 'app.js', 'booking.js', '_headers', 'robots.txt', 'sitemap.xml', '.nojekyll']
 manifest_path = root / 'assets' / 'opt' / 'manifest.json'
 manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {}
-DEFAULT_SIZES = '(max-width: 760px) 100vw, 50vw'
+# Phones get ~2x-density images: sharp on 3x screens at about half the bytes.
+DEFAULT_SIZES = '(max-width: 760px) 66vw, 50vw'
 
 
 def clean_links(html):
