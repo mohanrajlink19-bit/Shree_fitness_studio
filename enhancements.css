@@ -112,3 +112,8 @@ button[type="submit"]:disabled{opacity:.6;cursor:wait}
 .progress-photo figcaption{color:#4f5243}
 /* Skip layout and paint for below-the-fold sections until they near the screen (faster first paint on phones). */
 main > section:not(:first-child){content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* Readable small labels (WCAG AA 4.5:1) and an explicit dark FAQ background so contrast checks see the real colours. */
+.coach-name span,.opening-hours small{color:#5f6052}
+.map-heading .eyebrow{color:#55532f}
+.map-heading>span:last-child{color:#4f5243}
+.faq{background:var(--black)}
