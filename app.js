@@ -20,6 +20,16 @@ document.addEventListener('keydown', event => {
   }
 });
 document.querySelector('#year').textContent = new Date().getFullYear();
+// Off-screen sections are sized by estimate until drawn, so re-align once a menu jump finishes.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  const target = link && link.hash.length > 1 && document.querySelector(link.hash);
+  if (!target) return;
+  // Stop listening if no jump happens, so a later scroll by the visitor is never snapped back.
+  const done = new AbortController();
+  addEventListener('scrollend', () => { done.abort(); target.scrollIntoView({behavior: 'instant'}); }, {signal: done.signal});
+  setTimeout(() => done.abort(), 3000);
+});
 document.querySelectorAll('[data-goal]').forEach(link => {
   link.addEventListener('click', () => {
     document.querySelector('#goal').value = link.dataset.goal;

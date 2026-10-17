@@ -110,3 +110,5 @@ button[type="submit"]:disabled{opacity:.6;cursor:wait}
 /* Text contrast (WCAG AA) on cream backgrounds. */
 .studio-features b{color:#5f6052}
 .progress-photo figcaption{color:#4f5243}
+/* Skip layout and paint for below-the-fold sections until they near the screen (faster first paint on phones). */
+main > section:not(:first-child){content-visibility:auto;contain-intrinsic-size:auto 900px}
