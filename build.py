@@ -11,8 +11,8 @@ output = root / 'dist'
 shutil.rmtree(output, ignore_errors=True)
 output.mkdir(exist_ok=True)
 pages = ['index.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']
-public_files = pages + ['styles.css', 'enhancements.css', 'app.js', 'booking.js', '_headers', 'robots.txt', 'sitemap.xml', '.nojekyll', '5d415d3ff958007e70461042801040b7.txt']
-# The .txt file is the IndexNow key: Bing and other engines fetch it to confirm URL submissions come from this site.
+public_files = pages + ['styles.css', 'enhancements.css', 'app.js', 'booking.js', '_headers', 'robots.txt', 'sitemap.xml', '.nojekyll', '5d415d3ff958007e70461042801040b7.txt', 'googled4059e86940ab7b5.html']
+# The .txt file is the IndexNow key and the googled*.html file is Google Search Console's ownership file; both must stay published.
 manifest_path = root / 'assets' / 'opt' / 'manifest.json'
 manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {}
 # Phones get ~2x-density images: sharp on 3x screens at about half the bytes.
