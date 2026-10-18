@@ -157,6 +157,11 @@ Keep the sender phone with WhatsApp installed, and open it at least every couple
    git push
    ```
 4. Cloudflare rebuilds automatically. Watch it under **Deployments**.
+5. Optional, after changing page text: tell Bing and other IndexNow search engines straight away (PowerShell, one line):
+   ```powershell
+   Invoke-RestMethod -Method Post -Uri https://api.indexnow.org/indexnow -ContentType 'application/json' -Body '{"host":"shreefitnessstudio.pages.dev","key":"5d415d3ff958007e70461042801040b7","urlList":["https://shreefitnessstudio.pages.dev/","https://shreefitnessstudio.pages.dev/booking","https://shreefitnessstudio.pages.dev/personal-training","https://shreefitnessstudio.pages.dev/online-training"]}'
+   ```
+   The key file `5d415d3ff958007e70461042801040b7.txt` must stay in the project. For Google, use **URL inspection → Request indexing** in Search Console.
 
 **Don't** use ZIP uploads or `wrangler pages deploy` for this project any more. GitHub is now the only way to publish.
 
