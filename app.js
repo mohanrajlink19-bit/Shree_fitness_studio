@@ -113,7 +113,7 @@ photoDialog.addEventListener('click', event => {
 });
 photoDialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
 document.querySelector('#copy-address').addEventListener('click', async () => {
-  const address = 'Shree Fitness Unisex Studio AC, No.3, Sakthi Nagar 4th Street, opposite Saravana Stores, Somasundaram Avenue, Porur, Chennai, Tamil Nadu 600116. Upstairs at the BSNL Telephone Exchange.';
+  const address = 'Shree Fitness Unisex Studio AC, No.3, Parvathi Avenue 4th Street, opposite Saravana Stores, Somasundaram Avenue, Sakthi Nagar, Porur, Chennai, Tamil Nadu 600116. Upstairs at the BSNL Telephone Exchange.';
   const status = document.querySelector('#address-status');
   try {
     await navigator.clipboard.writeText(address);

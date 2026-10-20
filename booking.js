@@ -17,7 +17,7 @@ function displayTime(value) {
 const nameInput = document.querySelector('#booking-name');
 const phoneInput = document.querySelector('#booking-phone');
 const serviceInputs = [...document.querySelectorAll('input[name="service"]')];
-const studioLocation = 'Shree Fitness, No.3 Sakthi Nagar 4th Street, Somasundaram Avenue, Porur, Chennai 600116 — upstairs at BSNL Telephone Exchange, opposite Saravana Stores';
+const studioLocation = 'Shree Fitness, No.3 Parvathi Avenue 4th Street, Somasundaram Avenue, Sakthi Nagar, Porur, Chennai 600116 — upstairs at BSNL Telephone Exchange, opposite Saravana Stores';
 
 function indiaNow() {
   const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());

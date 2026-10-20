@@ -183,6 +183,46 @@ Found through directory research. Google review counts were not available withou
 - The gym schema has no `geo` coordinates and no `sameAs` profile links. Add them once the Google Maps share link of the Business Profile is available, plus any Instagram or Facebook pages.
 - **Citation gap:** competitors in Porur (JRC Gym, Shredded Society, Vars Hi-tech, Endorphins) are listed on FITPASS. Shree Fitness isn't yet listed there, nor on Justdial, Sulekha or Lyfskills.
 
+## Map ranking check (20 October 2026)
+
+Google Maps, search "gym in porur", map centred on the studio: **Shree Fitness is #14**.
+
+| # | Gym | Rating (reviews) |
+| --- | --- | --- |
+| 1 | Shredded Society Fitness Studio – Porur Garden | 4.9 (472) |
+| 2 | JRC Xtreme Fitness | 4.7 (75) |
+| 3 | Brong Fitness – GK Cinemas | 4.9 (457) |
+| 4 | KPR Gym & Fitness Center | 4.9 (344) |
+| 8 | Skale Fitness Unlimited – Porur | 4.6 (343) |
+| 11 | SLAM Lifestyle and Fitness Studio | 4.4 (135) |
+| 14 | **Shree Fitness Unisex Studio AC** | **4.5 (281)** |
+
+**Profile as seen on Maps:**
+- 281 reviews: 201 five-star, 38 four-star, 25 three-star, 12 two-star and 5 one-star (average 4.49).
+- 51 photos. Last post 15 Sep 2026.
+- Phone shown: 087786 42342. Website: pages.dev.
+- Review topics: trainers 69, hygiene 21, hygienic gym 6, weight loss 4, diet chart 3, value for money 3.
+- Place CID: 9076228611449774766. Knowledge Graph id: /g/11fpy8f2sp. Coordinates: 13.0292602, 80.1632329.
+
+**Why #14 when the review count is high:** most gyms above it are rated 4.7–4.9, and Google weighs rating and recent activity as well as volume. The 42 reviews of 3 stars or fewer hold the average at 4.5.
+
+**Five-star reviews needed to lift the displayed rating** (assuming no new low ratings):
+- About **40** more for 4.6.
+- About **130** for 4.7.
+
+**Done on 20 Oct:**
+- New `/gym-in-porur` page (about 1,100 words, FAQ schema). The competitor SLAM's page is about 300 words with no FAQ.
+- Maps coordinates, CID and Knowledge Graph links added to the schema.
+- Website street name changed to Parvathi Avenue 4th Street to match the Google listing.
+- New URLs submitted to IndexNow.
+
+**Owner to do:**
+- Set the profile's primary phone to 095660 99329, with 087786 42342 as the additional number.
+- Reply to every review, starting with the 42 reviews of 3 stars or fewer.
+- Add photos every week (target 150+).
+- Post weekly.
+- Set special hours before festivals.
+
 ## Sources
 
 - Google: [How Google determines local ranking](https://support.google.com/business/answer/7091)

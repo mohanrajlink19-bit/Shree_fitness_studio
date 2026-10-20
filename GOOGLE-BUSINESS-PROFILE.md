@@ -22,7 +22,7 @@ Keep the **name, address and phone (NAP) identical** everywhere: the profile, th
 
 ```
 Shree Fitness Unisex Studio AC
-No.3, Sakthi Nagar 4th Street, Somasundaram Avenue, Porur, Chennai, Tamil Nadu 600116
+No.3, Parvathi Avenue 4th Street, Somasundaram Avenue, Sakthi Nagar, Porur, Chennai, Tamil Nadu 600116
 (Landmark: upstairs at the BSNL Telephone Exchange, opposite Saravana Stores)
 +91 95660 99329
 ```
@@ -46,7 +46,7 @@ No.3, Sakthi Nagar 4th Street, Somasundaram Avenue, Porur, Chennai, Tamil Nadu 6
 
 ### Business description (669 / 750 characters, ready to paste)
 
-> Shree Fitness Unisex Studio AC is an air-conditioned gym in Porur, Chennai, open to men and women. Train with dumbbells, a power rack, bench press stations, cable and resistance machines, a leg press, treadmills, spin bikes and an elliptical cross-trainer. Personal training is available with Sakthi Master, along with online coaching that includes live workout sessions, diet-plan guidance and weekly progress tracking. Open Monday to Saturday from 5:30 AM to 9:30 PM and Sunday from 7 to 11 AM. Find us upstairs at the BSNL Telephone Exchange on Sakthi Nagar 4th Street, opposite Saravana Stores – close to Ramapuram, Valasaravakkam, Mugalivakkam and Iyyappanthangal.
+> Shree Fitness Unisex Studio AC is an air-conditioned gym in Porur, Chennai, open to men and women. Train with dumbbells, a power rack, bench press stations, cable and resistance machines, a leg press, treadmills, spin bikes and an elliptical cross-trainer. Personal training is available with Sakthi Master, along with online coaching that includes live workout sessions, diet-plan guidance and weekly progress tracking. Open Monday to Saturday from 5:30 AM to 9:30 PM and Sunday from 7 to 11 AM. Find us upstairs at the BSNL Telephone Exchange on Parvathi Avenue 4th Street, Sakthi Nagar, opposite Saravana Stores – close to Ramapuram, Valasaravakkam, Mugalivakkam and Iyyappanthangal.
 
 The description has little direct ranking weight, but Google's **"Ask Maps" AI answers** read it, along with services, reviews and photos (the old Q&A section was removed in late 2025). That is why it lists equipment, hours, women's access and landmarks.
 

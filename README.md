@@ -8,7 +8,7 @@ Open `index.html` directly, or run `python -m http.server 8080` from this folder
 
 ## Content
 
-- Address supplied by the owner: No.3, Sakthi Nagar 4th Street, opposite Saravana Stores, Somasundaram Avenue, Porur, Chennai, Tamil Nadu 600116.
+- Address supplied by the owner: No.3, Parvathi Avenue 4th Street, opposite Saravana Stores, Somasundaram Avenue, Sakthi Nagar, Porur, Chennai, Tamil Nadu 600116.
 - Studio phone: +91 95660 99329; personal training/enquiry phone: +91 87786 42342.
 - Personal training branding and service categories come from the supplied Shree Fitness material.
 - Posted hours from the supplied studio material: Monday–Saturday 5:30 AM–9:30 PM; Sunday 7–11 AM. The website advises calling ahead for holiday timings. Prices are not published because the offer period and current validity are unconfirmed. Older phone numbers on signs are not used as contact information.
