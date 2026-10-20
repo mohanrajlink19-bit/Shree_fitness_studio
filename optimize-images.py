@@ -18,7 +18,7 @@ WIDTHS = [480, 720, 1080, 1440]
 QUALITY = 68
 
 # Only photos the pages actually show.
-pages = ['index.html', 'booking.html', 'personal-training.html', 'online-training.html']
+pages = ['index.html', 'gym-in-porur.html', 'booking.html', 'personal-training.html', 'online-training.html']
 used = sorted({m for page in pages for m in re.findall(r'assets/([\w-]+\.jpeg)', (root / page).read_text(encoding='utf-8'))})
 
 manifest = {}

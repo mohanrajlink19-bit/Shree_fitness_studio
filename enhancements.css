@@ -123,3 +123,13 @@ main > section:not(:first-child){content-visibility:auto;contain-intrinsic-size:
 .booking-panel .booking-policy{color:#4f5243}
 .booking-panel .form-note{color:#5f6052}
 .review-note,.booking-review dt{color:#5f6052}
+/* Prose and Google review quotes on the Porur landing page. */
+.page-copy{margin-top:28px}
+.page-copy>p{max-width:760px;font-size:14px;line-height:1.85;color:var(--muted)}
+.section-light .page-copy>p{color:#4c4e44}
+.review-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+.review-quotes blockquote{margin:0;border-left:2px solid #9c8b44;padding:4px 0 4px 16px}
+.review-quotes blockquote p{font-size:16px;line-height:1.55;font-style:italic;color:#24271b}
+.review-quotes cite{display:block;margin-top:10px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-style:normal;color:#5f6052}
+@media(max-width:900px){.review-quotes{grid-template-columns:1fr}}
+.section-light .service-aside{color:#4c4e44}

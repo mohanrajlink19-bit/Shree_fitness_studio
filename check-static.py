@@ -38,7 +38,7 @@ class Page(HTMLParser):
             self.stack.pop()
 
 pages = {}
-for name in ['index.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']:
+for name in ['index.html', 'gym-in-porur.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']:
     text = (root / name).read_text(encoding='utf-8')
     assert '\ufffd' not in text, f'{name}: broken Unicode'
     page = Page(name)
@@ -61,7 +61,7 @@ for name, page in pages.items():
     print(f'{name}: HTML nesting, heading, links, anchors, image alt text and local assets passed')
 import re
 SITE = 'https://shreefitnessstudio.pages.dev'
-canonicals = {'index.html': f'{SITE}/', 'booking.html': f'{SITE}/booking', 'personal-training.html': f'{SITE}/personal-training', 'online-training.html': f'{SITE}/online-training'}
+canonicals = {'index.html': f'{SITE}/', 'gym-in-porur.html': f'{SITE}/gym-in-porur', 'booking.html': f'{SITE}/booking', 'personal-training.html': f'{SITE}/personal-training', 'online-training.html': f'{SITE}/online-training'}
 sitemap = (root / 'sitemap.xml').read_text(encoding='utf-8')
 assert f'Sitemap: {SITE}/sitemap.xml' in (root / 'robots.txt').read_text(encoding='utf-8'), 'robots.txt: missing sitemap'
 for name, url in canonicals.items():

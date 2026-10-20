@@ -10,7 +10,7 @@ root = Path(__file__).resolve().parent
 output = root / 'dist'
 shutil.rmtree(output, ignore_errors=True)
 output.mkdir(exist_ok=True)
-pages = ['index.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']
+pages = ['index.html', 'gym-in-porur.html', 'booking.html', 'personal-training.html', 'online-training.html', '404.html']
 public_files = pages + ['styles.css', 'enhancements.css', 'app.js', 'booking.js', '_headers', 'robots.txt', 'sitemap.xml', '.nojekyll', '5d415d3ff958007e70461042801040b7.txt', 'googled4059e86940ab7b5.html']
 # The .txt file is the IndexNow key and the googled*.html file is Google Search Console's ownership file; both must stay published.
 manifest_path = root / 'assets' / 'opt' / 'manifest.json'
